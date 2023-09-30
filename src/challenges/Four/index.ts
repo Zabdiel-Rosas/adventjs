@@ -4,7 +4,7 @@ interface Box {
   h: number
 }
 
-const boxes = [
+const boxes: Box[] = [
   { l: 2, w: 2, h: 2 },
   { l: 1, w: 1, h: 1 },
   { l: 3, w: 3, h: 3 },
@@ -12,22 +12,16 @@ const boxes = [
 
 function fitsInOneBox(boxes: Box[]) {
   const sortedBoxes = boxes.sort((a, b) => b.l - a.l)
-  const values: number[][] = sortedBoxes.map((box) => Object.values(box))
 
-  for (let i = 0; i < values.length; i++) {
-    const currentArr: number[] = values[i]
-    const nextArr: number[] = values[i + 1]
-
-    if (nextArr) {
-      for (let c = 0; c < currentArr.length; c++) {
-        if (currentArr[c] <= nextArr[c]) {
-          return false
-        }
-      }
-    }
+  const isBigger = (box: Box, nextBox: Box) => {
+    return box.l > nextBox.l && box.w > nextBox.w && box.h > nextBox.h
   }
 
-  return true
+  return sortedBoxes.every((box, i) => {
+    const nextBox = sortedBoxes[i + 1]
+
+    return !nextBox || isBigger(box, nextBox)
+  })
 }
 
 export { boxes, fitsInOneBox }
