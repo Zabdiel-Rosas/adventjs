@@ -1,3 +1,3 @@
-import { result } from './challenges/two/manufacture'
+import { result } from './challenges/three/findNaughtyStep'
 
-console.log('Manufactured Gifts: ', result)
+console.log('Steps: ', result)
