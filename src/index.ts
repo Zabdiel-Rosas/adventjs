@@ -1,13 +1,11 @@
-import { gifts, wrapping } from './challenges/one'
-import { year, holidays, countHours } from './challenges/two'
+import { result } from './challenges/two/manufacture'
 import { sequence, modified, findNaughtyStep } from './challenges/Three'
-import { boxes, fitsInOneBox } from './challenges/Four'
 
 // challenge One
 // console.log(wrapping(gifts))
 
 // challenge Two
-// console.log(countHours(year, holidays))
+// console.log('Manufactured Gifts: ', result)
 
 // challenge Three
 console.log('Naughty Step-->', findNaughtyStep(sequence, modified))
