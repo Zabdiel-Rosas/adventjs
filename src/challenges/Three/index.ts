@@ -1,24 +1,32 @@
-const packOfGifts = ['book', 'doll', 'ball']
-const reindeers = ['dasher', 'dancer']
+const sequence = 'xxxhgl'
+const modified = 'xxxn'
 
-function distributeGifts(packOfGifts: string[], reindeers: string[]) {
-  let giftPacks = 0
-  let packWeights = 0
-  let reindeersCanCarry = 0
+function findNaughtyStep(original: string, modified: string): string {
+  let isMissing = original.length > modified.length
+  let result = ''
 
-  for (let gift of packOfGifts) {
-    let size = gift.length
-    packWeights += size
+  if (original.length === modified.length) {
+    if (original !== modified) {
+      let stringArr = modified
+        .split('')
+        .find((ch: string, index: number) => ch !== original[index])
+
+      if (stringArr) result = stringArr
+    }
+  } else {
+    const dynamicObj = {
+      biggerArr: isMissing ? original : modified,
+      smallerArr: isMissing ? modified : original,
+    }
+
+    let arr = dynamicObj.biggerArr
+      .split('')
+      .find((e, index) => e != dynamicObj.smallerArr[index])
+
+    if (arr) result = arr
   }
 
-  for (let reindeer of reindeers) {
-    let size = reindeer.length * 2
-    reindeersCanCarry += size
-  }
-
-  giftPacks = Math.floor(reindeersCanCarry / packWeights)
-
-  return giftPacks
+  return result
 }
 
-export { packOfGifts, reindeers, distributeGifts }
+export { sequence, modified, findNaughtyStep }

@@ -1,6 +1,6 @@
 import { gifts, wrapping } from './challenges/one'
 import { year, holidays, countHours } from './challenges/two'
-import { packOfGifts, reindeers, distributeGifts } from './challenges/Three'
+import { sequence, modified, findNaughtyStep } from './challenges/Three'
 import { boxes, fitsInOneBox } from './challenges/Four'
 
 // challenge One
@@ -10,8 +10,8 @@ import { boxes, fitsInOneBox } from './challenges/Four'
 // console.log(countHours(year, holidays))
 
 // challenge Three
-// console.log(distributeGifts(packOfGifts, reindeers))
+console.log('Naughty Step-->', findNaughtyStep(sequence, modified))
 
 // challenge Four
-console.log(fitsInOneBox(boxes))
+// console.log(fitsInOneBox(boxes))
 // fitsInOneBox(boxes)
