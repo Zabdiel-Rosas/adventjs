@@ -1,32 +1,17 @@
-const sequence = 'xxxhgl'
-const modified = 'xxxn'
+const sequence = 'xxxx'
+const modified = 'xxox'
 
-function findNaughtyStep(original: string, modified: string): string {
-  let isMissing = original.length > modified.length
-  let result = ''
+function findNaughtyStep(original: string, modified: string) {
+  const isMissing = original.length > modified.length
+  const longer = isMissing ? original : modified
+  const shorter = isMissing ? modified : original
 
-  if (original.length === modified.length) {
-    if (original !== modified) {
-      let stringArr = modified
-        .split('')
-        .find((ch: string, index: number) => ch !== original[index])
-
-      if (stringArr) result = stringArr
-    }
-  } else {
-    const dynamicObj = {
-      biggerArr: isMissing ? original : modified,
-      smallerArr: isMissing ? modified : original,
-    }
-
-    let arr = dynamicObj.biggerArr
-      .split('')
-      .find((e, index) => e != dynamicObj.smallerArr[index])
-
-    if (arr) result = arr
+  // if both strings have the same length and are not equal
+  if (original.length === modified.length && original !== modified) {
+    return modified.split('').find((e, index) => e !== original[index]) || ''
   }
-
-  return result
+  // if the lengths are different, find the first mismatch in the bigger array
+  return longer.split('').find((e, index) => e !== shorter[index]) || ''
 }
 
 export { sequence, modified, findNaughtyStep }
