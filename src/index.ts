@@ -1,5 +1,6 @@
 import { result } from './challenges/two/manufacture'
 import { sequence, modified, findNaughtyStep } from './challenges/Three'
+import { decode } from './challenges/four'
 
 // challenge One
 // console.log(wrapping(gifts))
@@ -8,8 +9,7 @@ import { sequence, modified, findNaughtyStep } from './challenges/Three'
 // console.log('Manufactured Gifts: ', result)
 
 // challenge Three
-console.log('Naughty Step-->', findNaughtyStep(sequence, modified))
+// console.log('Naughty Step-->', findNaughtyStep(sequence, modified))
 
 // challenge Four
-// console.log(fitsInOneBox(boxes))
-// fitsInOneBox(boxes)
+console.log(decode('(olleh) (dlrow)!'))
